@@ -18,7 +18,7 @@ class Events {
       /*
       It's not quite clear how the outlined trigger() function will be called, however based on my reading of the docs this will
       be via some automatic process taken care of using a node or some other method. It's possible that this is achived using
-      a websocket or even a simple API call built into a node, but at right now it's still not very obvious how this will be implemented.
+      a websocket or even a simple API call built into a node, but right now it's still not very obvious how this will be implemented.
       Whatever this may look what when more info is published, the request should be processed by the router and then end up calling
       this fn using an event emitter.
       */
