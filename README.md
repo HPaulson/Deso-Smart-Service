@@ -16,11 +16,17 @@ The structure of this repo is as follows:
     - Utils - Utility functions for repeate code & source modularity
 
 # Development & Deployment
+
+## Pre-Requisites
+- [Docker Engine](https://docs.docker.com/engine/install/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+## App Script
 To deploy the application in Development, you can utilize the `app.sh` script. It takes a few possible arguments:
 
 - Action
     - up - Starts the application
-    - build - Builds a new App image (This is needed when files are added)
+    - build - Builds a new App image (This is needed when files are added, and before you first run the project)
     - restart - Restarts the App service inside of Compose
 - Enviornment
     - dev
