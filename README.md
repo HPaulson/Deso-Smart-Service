@@ -6,7 +6,7 @@ The structure of this repo is as follows:
 
 - Config - Stores all project configuration for Docker, Nginx, Git, MongoDB, and etc
     - data - Any requiered project data, such as local Mongo data for development or certbot data for production
-- Scripts - Includes helpful utils for running the project in dev, stage, and prod. See [Development & Deployment](#development-and-deployment) for more details.
+- Scripts - Includes helpful utils for running the project in dev, stage, and prod. See [Development & Deployment](#development--deployment) for more details.
 - Src
     - Db - Stores database-related interactions
     - Events - Event listeners, including trigger()
