@@ -54,5 +54,5 @@ I personally like to run `./app.sh up dev` in a split terminal with `./app.sh re
 ### SSL In Production
 When building for production, you will also want to utilize the `init-letsencrypt.sh` script if you plan on using SSL. This will initalize Certbot and create a dummy SSL cert to then validate the creation of a free Let's Encrypt Certificate. This script only has to be ran once (The first time setting up the project), and requiers an existing A record pointed at the server's IP.
 
-# Making Changes
+# Contributing 
 When making changes, please first format code using `demo fmt`, and lint using `deno lint`! Once everything is tested and looks good, open a PR.
