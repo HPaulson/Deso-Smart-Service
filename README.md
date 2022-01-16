@@ -21,8 +21,16 @@ The structure of this repo is as follows:
 - [Docker Engine](https://docs.docker.com/engine/install/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
+## Getting Started
+First, ensure that all the required [pre-requisites](pre-requisites) have been correctly installed. Without these, none of the following steps will work as expected. Once these are setup and good to go, you'll have a little bit of configuration to do. First, you'll want to set a MongoDB Connection String to `$MONGO_CONNECTION_STRING`. This can be accomplished using `export`, or by setting the variable in `config/.env`. If you're running the application in the Development enviornment, then using the included containerized DB instance is reccomended. In that case, you add the following contents to `config/.env`:
+```
+MONGO_CONNECTION_STRING=mongodb://127.0.0.1:27017
+``` 
+
+Once you've added the enviornment variable, you'll want to build the docker image. To accomplish this, you use the included [App Script](#app-script) by running `./app.sh build` in the `config` folder. Once this has compleated, you're all set! To start the application in the Development enviornment you can again use the app script by running `./app.sh up dev`. See the [App Script](#app-script) section below for all available options.
+
 ## App Script
-To deploy the application in Development, you can utilize the `app.sh` script. It takes a few possible arguments:
+To deploy the Smart Service, you can utilize the `app.sh` script. It takes a few possible arguments:
 
 - Action
     - up - Starts the application
