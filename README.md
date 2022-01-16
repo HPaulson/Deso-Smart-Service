@@ -20,6 +20,7 @@ The structure of this repo is as follows:
 ## Pre-Requisites
 - [Docker Engine](https://docs.docker.com/engine/install/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
+- (Optional) [Deno Runtime](https://deno.land) - Reccomended for IntelliSense & formatting
 
 ## Getting Started
 First, ensure that all the required [pre-requisites](pre-requisites) have been correctly installed. Without these, none of the following steps will work as expected. Once these are setup and good to go, you'll have a little bit of configuration to do. First, you'll want to set a MongoDB Connection String to `$MONGO_CONNECTION_STRING`. This can be accomplished using `export`, or by setting the variable in `config/.env`. If you're running the application in the Development enviornment, then using the included containerized DB instance is reccomended. In that case, you add the following contents to `config/.env`:
@@ -52,3 +53,6 @@ I personally like to run `./app.sh up dev` in a split terminal with `./app.sh re
 
 ### SSL In Production
 When building for production, you will also want to utilize the `init-letsencrypt.sh` script if you plan on using SSL. This will initalize Certbot and create a dummy SSL cert to then validate the creation of a free Let's Encrypt Certificate. This script only has to be ran once (The first time setting up the project), and requiers an existing A record pointed at the server's IP.
+
+# Making Changes
+When making changes, please first format code using `demo fmt`, and lint using `deno lint`! Once everything is tested and looks good, open a PR.
