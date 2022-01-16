@@ -35,12 +35,11 @@ To deploy the Smart Service, you can utilize the `app.sh` script. It takes a few
 
 - Action
     - up - Starts the application
+        - dev
+        - stage
+        - prod
     - build - Builds a new App image (This is needed when files are added, and before you first run the project)
     - restart - Restarts the App service inside of Compose
-- Enviornment
-    - dev
-    - stage
-    - prod
 
 Examples:
 ```
