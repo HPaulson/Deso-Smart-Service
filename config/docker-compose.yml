@@ -1,0 +1,56 @@
+
+# ENVIORNMENT PROFILES: 
+#   - Dev, testing local changes ready in preperation for a commit
+#   - Stage, production-like stage for testing release canidates
+#   - Prod, production instance of shipped application
+
+version: "3.8"
+services:
+  nginx: 
+    container_name: nginx
+    image: nginx:latest
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    depends_on: 
+      - app
+    ports:
+      - 80:80
+      - 443:443
+    profiles:
+      - prod
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    profiles:
+      - prod
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    volumes:
+      - ./data/mongodb:/data/db
+    expose:
+    - "27017"
+    ports:
+    - 27017:27017
+    logging:
+      driver: none
+    profiles:
+      - dev
+  app:
+    container_name: app
+    image: app:latest
+    build: ../
+    ports:
+    - 17002:17002
+    env_file:
+    - .env
+    expose:
+    - "17002"
+    volumes:
+      - ../src:/APP
