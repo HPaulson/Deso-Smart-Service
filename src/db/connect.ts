@@ -11,8 +11,8 @@ class DataBase {
           console.error("FAILED TO CONNECT MONGODB CLIENT:", e);
           Deno.exit(1); // For this example, a mongo connection will be required for the Smart Service to operate at runtime
         });
-        return client;
       };
+    return client;
   };
 }
 
